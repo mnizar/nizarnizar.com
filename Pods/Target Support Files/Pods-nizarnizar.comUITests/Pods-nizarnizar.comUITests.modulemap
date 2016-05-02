@@ -1,0 +1,6 @@
+framework module Pods_nizarnizar_comUITests {
+  umbrella header "Pods-nizarnizar.comUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
