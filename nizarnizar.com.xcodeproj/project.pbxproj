@@ -20,6 +20,10 @@
 		2B5041A31CD146860066BEB0 /* BlogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5041A21CD146850066BEB0 /* BlogTableViewCell.swift */; };
 		2B5041A51CD7C0060066BEB0 /* BlogPostParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5041A41CD7C0060066BEB0 /* BlogPostParser.swift */; };
 		2B5041A71CD7C03B0066BEB0 /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5041A61CD7C03B0066BEB0 /* BlogPost.swift */; };
+		2B5041A91CDB62470066BEB0 /* NNParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5041A81CDB62470066BEB0 /* NNParser.swift */; };
+		2B5041AB1CDB62840066BEB0 /* NNRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5041AA1CDB62840066BEB0 /* NNRequest.swift */; };
+		2B5041AD1CDB63B10066BEB0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5041AC1CDB63B10066BEB0 /* BaseViewController.swift */; };
+		2B5041AF1CDB64220066BEB0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5041AE1CDB64220066BEB0 /* Constants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +64,10 @@
 		2B5041A21CD146850066BEB0 /* BlogTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlogTableViewCell.swift; path = Classess/Views/BlogTableViewCell.swift; sourceTree = "<group>"; };
 		2B5041A41CD7C0060066BEB0 /* BlogPostParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlogPostParser.swift; path = Classess/Services/Parsers/BlogPostParser.swift; sourceTree = "<group>"; };
 		2B5041A61CD7C03B0066BEB0 /* BlogPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlogPost.swift; path = Classess/Models/BlogPost.swift; sourceTree = "<group>"; };
+		2B5041A81CDB62470066BEB0 /* NNParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NNParser.swift; path = Classess/Services/Parsers/NNParser.swift; sourceTree = "<group>"; };
+		2B5041AA1CDB62840066BEB0 /* NNRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NNRequest.swift; path = Classess/Services/NNRequest.swift; sourceTree = "<group>"; };
+		2B5041AC1CDB63B10066BEB0 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = Classess/ViewControllers/BaseViewController.swift; sourceTree = "<group>"; };
+		2B5041AE1CDB64220066BEB0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Classess/Constants.swift; sourceTree = "<group>"; };
 		FF17E7D4B74076E586A16D7D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -158,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				2B5041A01CC2968B0066BEB0 /* AppDelegate.swift */,
+				2B5041AE1CDB64220066BEB0 /* Constants.swift */,
 				2B5041981CC295330066BEB0 /* Views */,
 				2B5041971CC295110066BEB0 /* Addition */,
 				2B5041961CC295080066BEB0 /* Components */,
@@ -180,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				2B5041941CC294F60066BEB0 /* Parsers */,
+				2B5041AA1CDB62840066BEB0 /* NNRequest.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -188,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				2B5041A41CD7C0060066BEB0 /* BlogPostParser.swift */,
+				2B5041A81CDB62470066BEB0 /* NNParser.swift */,
 			);
 			name = Parsers;
 			sourceTree = "<group>";
@@ -197,6 +208,7 @@
 			children = (
 				2B50419C1CC296320066BEB0 /* BlogListViewController.swift */,
 				2B50419E1CC296580066BEB0 /* DetailPostViewController.swift */,
+				2B5041AC1CDB63B10066BEB0 /* BaseViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -435,11 +447,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B5041A51CD7C0060066BEB0 /* BlogPostParser.swift in Sources */,
+				2B5041AF1CDB64220066BEB0 /* Constants.swift in Sources */,
 				2B5041A11CC2968B0066BEB0 /* AppDelegate.swift in Sources */,
+				2B5041A91CDB62470066BEB0 /* NNParser.swift in Sources */,
 				2B5041681CC275C70066BEB0 /* nizarnizar_com.xcdatamodeld in Sources */,
 				2B5041A31CD146860066BEB0 /* BlogTableViewCell.swift in Sources */,
+				2B5041AD1CDB63B10066BEB0 /* BaseViewController.swift in Sources */,
 				2B5041A71CD7C03B0066BEB0 /* BlogPost.swift in Sources */,
 				2B50419F1CC296580066BEB0 /* DetailPostViewController.swift in Sources */,
+				2B5041AB1CDB62840066BEB0 /* NNRequest.swift in Sources */,
 				2B50419D1CC296320066BEB0 /* BlogListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

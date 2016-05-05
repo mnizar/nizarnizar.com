@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '398D8A86A933A34FF2D217C4'
-               BlueprintName = 'Pods-nizarnizar.com'
+               BlueprintIdentifier = 'C92FB61327BCFB4EA7CC0C45'
+               BlueprintName = 'SwiftString'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods_nizarnizar_com.framework'>
+               BuildableName = 'SwiftString.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

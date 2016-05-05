@@ -10,5 +10,18 @@ import UIKit
 import CoreData
 
 class BlogPost: NSManagedObject {
-
+    @NSManaged var titlePost: String
+    @NSManaged var contentHTML: String
+    @NSManaged var sourceUrl: String
+    @NSManaged var createdDate: String
+    @NSManaged var modifiedDate: String
+    @NSManaged var authorName: String
+    @NSManaged var imageUrl: String
+    @NSManaged var slug: String
+    @NSManaged var postID: String
+    
+    func insertBlogPostWithArray(array: [[String: AnyObject]]) {
+        
+    }
 }
+

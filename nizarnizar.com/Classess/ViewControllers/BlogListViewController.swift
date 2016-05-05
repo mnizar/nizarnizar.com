@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class BlogListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class BlogListViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var blogListTableView: UITableView!
     
@@ -18,6 +18,7 @@ class BlogListViewController: UIViewController, UITableViewDataSource, UITableVi
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        requestBlogListWithOffset(0, limit: 0);
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,5 +46,24 @@ class BlogListViewController: UIViewController, UITableViewDataSource, UITableVi
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK : -Private Methods
+    func requestBlogListWithOffset(offset : Int, limit: Int) {
+        Alamofire.request(.GET, "http://nizarnizar.com/blog/", parameters: ["json": "1"])
+            .responseJSON { response in
+                print(response.request)  // original URL request
+//                print(response.response) // URL response
+//                print(response.data)     // server data
+//                print(response.result)   // result of response serialization
+                
+                if let JSON = response.result.value {
+                    let responsePostArray = JSON["posts"] as! Array<Dictionary<String, AnyObject>>
+//                    print(responsePostArray)
+                    let parser = BlogPostParser()
+                    let parsedArray = parser.parsedArrayFromArray(responsePostArray)
+//                    print(parsedArray)
+                }
+        }
+    }
 
 }
