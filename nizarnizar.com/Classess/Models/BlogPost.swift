@@ -20,8 +20,10 @@ class BlogPost: NSManagedObject {
     @NSManaged var slug: String
     @NSManaged var postID: String
     
-    func insertBlogPostWithArray(array: [[String: AnyObject]]) {
-        
+    func insertBlogPostWithArray(array: Array<Dictionary<String, AnyObject>>) {
+        for dictionary in array  {
+            print("parsedDictionary: \(dictionary)")
+        }
     }
 }
 

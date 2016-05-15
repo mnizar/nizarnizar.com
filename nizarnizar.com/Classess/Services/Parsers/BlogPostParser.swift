@@ -31,6 +31,10 @@ class BlogPostParser: NNParser {
             parsedDictionary["postID"] = postID
         }
         
+        if let sourceUrl = dictionary["url"] {
+            parsedDictionary["sourceUrl"] = sourceUrl
+        }
+        
         if let thumbnailDictionart = dictionary["thumbnail_images"] {
             if let thumbnailFull = thumbnailDictionart["full"] {
                 if let imageUrl = thumbnailFull!["url"] {
@@ -47,7 +51,7 @@ class BlogPostParser: NNParser {
         for dictionary in array  {
             if let parsedDictionary = parsedDictionaryFromDictionary(dictionary) {
                 parsedArray.append(parsedDictionary)
-                print("parsedDictionary: \(parsedDictionary)")
+//                print("parsedDictionary: \(parsedDictionary)")
             }
         }
         

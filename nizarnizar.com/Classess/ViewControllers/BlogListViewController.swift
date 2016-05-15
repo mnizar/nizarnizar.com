@@ -60,7 +60,14 @@ class BlogListViewController: BaseViewController, UITableViewDataSource, UITable
                     let responsePostArray = JSON["posts"] as! Array<Dictionary<String, AnyObject>>
 //                    print(responsePostArray)
                     let parser = BlogPostParser()
-                    let parsedArray = parser.parsedArrayFromArray(responsePostArray)
+                    if let parsedArray = parser.parsedArrayFromArray(responsePostArray) {
+                        
+                    }
+                    
+                    
+                    
+                    
+                    
 //                    print(parsedArray)
                 }
         }
