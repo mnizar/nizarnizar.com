@@ -22,9 +22,14 @@ class BlogPostParser: NNParser {
         if let slug = dictionary["slug"] {
             parsedDictionary["slug"] = slug
         }
+    
+        if let created = dictionary["date"] as? String {
+            let createdDate = DateFormatter.getDateFromString(created, dateFormat: "yyyy-MM-dd HH:mm:ss")
+            parsedDictionary["createdDate"] = createdDate
+        }
         
-        if let slug = dictionary["content"] {
-            parsedDictionary["contentHTML"] = slug
+        if let contentHTMLString = dictionary["content"] {
+            parsedDictionary["contentHTML"] = contentHTMLString
         }
         
         if let postID = dictionary["id"] {

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>AlamofireImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-nizarnizar.com.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,22 +47,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1959D802B66B8785A30A81519F1ED174</key>
+		<key>05094CC4A047119F7ADC14EE74C4881C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3E330562ADF67673592A80D5E02B46EB</key>
+		<key>075A826D0672D28C547E8F9502DF3B2F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4564209EEAD116DBB9EA04734CDA363F</key>
+		<key>24504C407A5D29E1A730ABEBBC8B9BFA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>679A574C70C612C3255F71E492E1F950</key>
+		<key>4E0B3B2CADF459BFF64089A3F92397D7</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7751D128C003097294FB222798F11AED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,12 +77,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AEBDFF5EE2A6622D6629715767B0D473</key>
+		<key>8E81808832098B40EA5C94D8CDDAA539</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CB605D8C40F0C3FBA88FF96D774CA4DA</key>
+		<key>8FE452BD1E7502D5276E14F38ADE306B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -5,6 +5,7 @@ use_frameworks!
 
 pod 'Alamofire', '~> 3.3'
 pod 'SwiftString'
+pod 'AlamofireImage', '~> 2.0'
 
 target 'nizarnizar.com' do
 

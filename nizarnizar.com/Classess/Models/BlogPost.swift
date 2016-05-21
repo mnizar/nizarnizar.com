@@ -13,7 +13,7 @@ class BlogPost: NSManagedObject {
     @NSManaged var titlePost: String
     @NSManaged var contentHTML: String
     @NSManaged var sourceUrl: String
-    @NSManaged var createdDate: String
+    @NSManaged var createdDate: NSDate
     @NSManaged var modifiedDate: String
     @NSManaged var authorName: String
     @NSManaged var imageUrl: String

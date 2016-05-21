@@ -24,6 +24,7 @@
 		2B5041AB1CDB62840066BEB0 /* NNRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5041AA1CDB62840066BEB0 /* NNRequest.swift */; };
 		2B5041AD1CDB63B10066BEB0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5041AC1CDB63B10066BEB0 /* BaseViewController.swift */; };
 		2B5041AF1CDB64220066BEB0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5041AE1CDB64220066BEB0 /* Constants.swift */; };
+		2B5041BB1CEE2F960066BEB0 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5041BA1CEE2F950066BEB0 /* DateFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		2B5041AA1CDB62840066BEB0 /* NNRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NNRequest.swift; path = Classess/Services/NNRequest.swift; sourceTree = "<group>"; };
 		2B5041AC1CDB63B10066BEB0 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = Classess/ViewControllers/BaseViewController.swift; sourceTree = "<group>"; };
 		2B5041AE1CDB64220066BEB0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Classess/Constants.swift; sourceTree = "<group>"; };
+		2B5041BA1CEE2F950066BEB0 /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateFormatter.swift; path = Classess/Utils/DateFormatter.swift; sourceTree = "<group>"; };
 		FF17E7D4B74076E586A16D7D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -165,6 +167,7 @@
 		2B5041901CC294950066BEB0 /* Classess */ = {
 			isa = PBXGroup;
 			children = (
+				2B5041B91CEE2F300066BEB0 /* Utils */,
 				2B5041A01CC2968B0066BEB0 /* AppDelegate.swift */,
 				2B5041AE1CDB64220066BEB0 /* Constants.swift */,
 				2B5041981CC295330066BEB0 /* Views */,
@@ -254,6 +257,14 @@
 			children = (
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2B5041B91CEE2F300066BEB0 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2B5041BA1CEE2F950066BEB0 /* DateFormatter.swift */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 		BDB58AE2E14FCD921A710217 /* Frameworks */ = {
@@ -446,6 +457,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B5041BB1CEE2F960066BEB0 /* DateFormatter.swift in Sources */,
 				2B5041A51CD7C0060066BEB0 /* BlogPostParser.swift in Sources */,
 				2B5041AF1CDB64220066BEB0 /* Constants.swift in Sources */,
 				2B5041A11CC2968B0066BEB0 /* AppDelegate.swift in Sources */,

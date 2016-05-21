@@ -85,9 +85,11 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-nizarnizar.com/Alamofire.framework"
+  install_framework "Pods-nizarnizar.com/AlamofireImage.framework"
   install_framework "Pods-nizarnizar.com/SwiftString.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-nizarnizar.com/Alamofire.framework"
+  install_framework "Pods-nizarnizar.com/AlamofireImage.framework"
   install_framework "Pods-nizarnizar.com/SwiftString.framework"
 fi
