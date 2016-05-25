@@ -81,6 +81,11 @@ class BlogListViewController: BaseViewController, UITableViewDataSource, UITable
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        performSegueWithIdentifier("showDetailPage", sender: nil)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
     func configureCell(tableViewCell: BlogTableViewCell , atIndexPath indexPath: NSIndexPath) {
         
         // Fetch Record
@@ -94,15 +99,23 @@ class BlogListViewController: BaseViewController, UITableViewDataSource, UITable
         }
     }
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showDetailPage"
+        {
+            if let detailViewController = segue.destinationViewController as? DetailPostViewController {
+                let indexPath = self.blogListTableView.indexPathForSelectedRow!
+                let blogPost = fetchedResultsController.objectAtIndexPath(indexPath) as! BlogPost
+                detailViewController.postID = blogPost.postID
+            }
+        }
     }
-    */
+ 
     
     // MARK: -
     // MARK: Fetched Results Controller Delegate Methods
