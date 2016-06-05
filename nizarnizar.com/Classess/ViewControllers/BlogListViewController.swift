@@ -14,6 +14,9 @@ import AlamofireImage
 class BlogListViewController: BaseViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
     
     @IBOutlet weak var blogListTableView: UITableView!
+    var isFirstTimeLoad : Bool = false
+    var isRequesting : Bool = false
+    var hasMoreData : Bool = false
     
     // Retreive the managedObjectContext from AppDelegate
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
@@ -35,12 +38,13 @@ class BlogListViewController: BaseViewController, UITableViewDataSource, UITable
         return fetchedResultsController
     }()
     
+    
     // MARK: - Life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
+        self.isFirstTimeLoad = true;
         do {
             try self.fetchedResultsController.performFetch()
         } catch {
@@ -56,34 +60,58 @@ class BlogListViewController: BaseViewController, UITableViewDataSource, UITable
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - UITableViewDelegate
+    // MARK: - UITableViewDataSource
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        if let sections = fetchedResultsController.sections {
-            return sections.count
-        }
-        
-        return 0
+        return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let sections = fetchedResultsController.sections {
-            let sectionInfo = sections[section]
-            return sectionInfo.numberOfObjects
-        }
         
-        return 0
+        let totalPosts = fetchedResultsController.sections![section].numberOfObjects
+        if (totalPosts == 0 && self.isFirstTimeLoad) {
+            return 1
+        } else {
+            return totalPosts
+        }
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("BlogTableViewCell", forIndexPath: indexPath) as! BlogTableViewCell
-        
-        configureCell(cell, atIndexPath: indexPath)
-        return cell
+        let totalPosts = fetchedResultsController.sections![indexPath.section].numberOfObjects
+        if (totalPosts == 0 && self.isFirstTimeLoad) {
+            let cell = tableView.dequeueReusableCellWithIdentifier("LoadingCellReuseIdentifier", forIndexPath: indexPath) 
+            return cell
+            
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("BlogTableViewCell", forIndexPath: indexPath) as! BlogTableViewCell
+            
+            configureCell(cell, atIndexPath: indexPath)
+            return cell
+        }
     }
+    
+    // MARK: - UITableViewDelegate
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         performSegueWithIdentifier("showDetailPage", sender: nil)
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let totalPosts = fetchedResultsController.sections![indexPath.section].numberOfObjects
+        if (totalPosts == 0 && self.isFirstTimeLoad) {
+            return tableView.frame.height
+        } else {
+            return 285.0
+        }
+    }
+    
+    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.0
+    }
+    
+    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.0
     }
     
     func configureCell(tableViewCell: BlogTableViewCell , atIndexPath indexPath: NSIndexPath) {
@@ -120,47 +148,24 @@ class BlogListViewController: BaseViewController, UITableViewDataSource, UITable
     // MARK: -
     // MARK: Fetched Results Controller Delegate Methods
     func controllerWillChangeContent(controller: NSFetchedResultsController) {
-        self.blogListTableView.beginUpdates()
+        
     }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
-        self.blogListTableView.endUpdates()
+        self.blogListTableView.reloadData()
     }
     
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-        switch (type) {
-        case .Insert:
-            if let indexPath = newIndexPath {
-                self.blogListTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            }
-            break;
-        case .Delete:
-            if let indexPath = indexPath {
-                self.blogListTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            }
-            break;
-        case .Update:
-            if let indexPath = indexPath {
-                let cell = self.blogListTableView.cellForRowAtIndexPath(indexPath) as! BlogTableViewCell
-                configureCell(cell, atIndexPath: indexPath)
-            }
-            break;
-        case .Move:
-            if let indexPath = indexPath {
-                self.blogListTableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-            }
-            
-            if let newIndexPath = newIndexPath {
-                self.blogListTableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Fade)
-            }
-            break;
-        }
+        
     }
     
     // MARK : -Private Methods
     func requestBlogListWithOffset(offset : Int, limit: Int) {
+        self.isRequesting = true
         Alamofire.request(.GET, "http://nizarnizar.com/blog/", parameters: ["json": "1"])
             .responseJSON { response in
+                self.isRequesting = false
+                self.isFirstTimeLoad = false
                 print(response.request)  // original URL request
 //                print(response.response) // URL response
 //                print(response.data)     // server data
