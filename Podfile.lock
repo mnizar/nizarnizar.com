@@ -1,17 +1,24 @@
 PODS:
-  - Alamofire (3.3.1)
-  - AlamofireImage (2.4.0):
-    - Alamofire (~> 3.3)
+  - Agrume (2.7.0)
+  - Alamofire (3.4.1)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
+  - SlideMenuControllerSwift (2.2.2)
   - SwiftString (0.5)
 
 DEPENDENCIES:
+  - Agrume
   - Alamofire (~> 3.3)
-  - AlamofireImage (~> 2.0)
+  - SDWebImage (~> 3.8)
+  - SlideMenuControllerSwift
   - SwiftString
 
 SPEC CHECKSUMS:
-  Alamofire: 369bc67b6f5ac33ded3648d7bd21c5bfb91c2ecc
-  AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
+  Agrume: d61d044cd26db13ccad57da0366fbf14b8a0f242
+  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
+  SlideMenuControllerSwift: e257221100c39d49edccaaeb0238b55a0c67953a
   SwiftString: ec9c31c55b2aa147a1154f5f5f8483dc71e3165f
 
 COCOAPODS: 0.39.0

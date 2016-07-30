@@ -21,6 +21,10 @@ class BaseViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: - Actions
+    @IBAction func sideMenuButtonDidClicked(sender:UIButton) {
+        self.slideMenuController()?.openLeft()
+    }
 
     /*
     // MARK: - Navigation

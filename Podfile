@@ -5,7 +5,9 @@ use_frameworks!
 
 pod 'Alamofire', '~> 3.3'
 pod 'SwiftString'
-pod 'AlamofireImage', '~> 2.0'
+pod 'SDWebImage', '~>3.8'
+pod 'SlideMenuControllerSwift'
+pod 'Agrume'
 
 target 'nizarnizar.com' do
 

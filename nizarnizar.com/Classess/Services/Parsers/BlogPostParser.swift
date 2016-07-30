@@ -11,8 +11,8 @@ import SwiftString
 
 class BlogPostParser: NNParser {
     
-    func parsedDictionaryFromDictionary(dictionary : Dictionary<String, AnyObject>) -> Dictionary<String, AnyObject>? {
-        var parsedDictionary = Dictionary<String, AnyObject>()
+    func parsedDictionaryFromDictionary(dictionary : [String : AnyObject]) -> [String : AnyObject]? {
+        var parsedDictionary = [String : AnyObject]()
         if let postTitle = dictionary["title"] {
             let encodedPostTitle = postTitle as! String
             let decodedPostTitle = encodedPostTitle.decodeHTML()
@@ -40,9 +40,9 @@ class BlogPostParser: NNParser {
             parsedDictionary["sourceUrl"] = sourceUrl
         }
         
-        if let thumbnailDictionart = dictionary["thumbnail_images"] {
-            if let thumbnailFull = thumbnailDictionart["full"] {
-                if let imageUrl = thumbnailFull!["url"] {
+        if let thumbnailDictionary = dictionary["thumbnail_images"] {
+            if let thumbnailFull = thumbnailDictionary["full"] as? [String:AnyObject]  {
+                if let imageUrl = thumbnailFull["url"] {
                     parsedDictionary["imageUrl"] = imageUrl
                 }
             }
@@ -51,12 +51,11 @@ class BlogPostParser: NNParser {
         return parsedDictionary
     }
     
-    func parsedArrayFromArray(array: Array<Dictionary<String, AnyObject>>) -> Array<Dictionary<String, AnyObject>>?{
-        var parsedArray = Array<Dictionary<String, AnyObject>>()
+    func parsedArrayFromArray(array: [[String:AnyObject]]) -> [[String:AnyObject]]?{
+        var parsedArray = [[String:AnyObject]]()
         for dictionary in array  {
             if let parsedDictionary = parsedDictionaryFromDictionary(dictionary) {
                 parsedArray.append(parsedDictionary)
-//                print("parsedDictionary: \(parsedDictionary)")
             }
         }
         

@@ -4,12 +4,12 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Alamofire.xcscheme</key>
+		<key>Agrume.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>AlamofireImage.xcscheme</key>
+		<key>Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -34,6 +34,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SlideMenuControllerSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftString-SwiftString.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,27 +57,17 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>05094CC4A047119F7ADC14EE74C4881C</key>
+		<key>09CF4D1D9EFA7AC91A403D748E51C4CF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>075A826D0672D28C547E8F9502DF3B2F</key>
+		<key>45E2302420E18CC66015962EB9577F6B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>24504C407A5D29E1A730ABEBBC8B9BFA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4E0B3B2CADF459BFF64089A3F92397D7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7751D128C003097294FB222798F11AED</key>
+		<key>5F67FA136228560EF9B5C14BF06F7060</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,12 +77,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8E81808832098B40EA5C94D8CDDAA539</key>
+		<key>7BA2BF64FC49C8E47BB83CF439C2F9A8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8FE452BD1E7502D5276E14F38ADE306B</key>
+		<key>89327681F58A8E59C63A0DF3C662F347</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9883A8BDA2E15386EFCA44326901C024</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9AB70460F3448046FC98A6588C7E7913</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F38B647C5DBBAFCE7F3947812A26C3F2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FF389DD5BC828268615457851C56C23C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
