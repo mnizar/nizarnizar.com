@@ -26,8 +26,8 @@ Screenshot
 ![Detail Page](http://farm9.staticflickr.com/8791/28061403704_3a4ae0dfec_o.png)
 ![Share View](http://farm9.staticflickr.com/8659/28394193290_92d037bab1_o.png)
 ![In App Browser Page](http://farm8.staticflickr.com/7574/28062607633_46397a3d6d_o.png)
-![About Page](httphttp://farm9.staticflickr.com/8577/28394190650_6b892691fd_o.png)
-![Open Image View](httphttp://farm9.staticflickr.com/8719/28062606603_c29f8332db_o.png)
+![About Page](http://farm9.staticflickr.com/8577/28394190650_6b892691fd_o.png)
+![Open Image View](http://farm9.staticflickr.com/8719/28062606603_c29f8332db_o.png)
 
 License
 ----------
