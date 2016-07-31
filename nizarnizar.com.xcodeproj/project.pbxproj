@@ -74,7 +74,7 @@
 		2B283A191D4CE0DB00716DAA /* Category+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Category+CoreDataProperties.swift"; path = "Classess/Models/Category+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2B283A1A1D4CE0DB00716DAA /* Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Category.swift; path = Classess/Models/Category.swift; sourceTree = "<group>"; };
 		2B283A1E1D4CE63D00716DAA /* CategoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CategoryManager.swift; path = Classess/Components/Category/CategoryManager.swift; sourceTree = "<group>"; };
-		2B50415C1CC275C60066BEB0 /* nizarnizar.com.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nizarnizar.com.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B50415C1CC275C60066BEB0 /* nizarnizar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nizarnizar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B5041641CC275C70066BEB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2B5041671CC275C70066BEB0 /* nizarnizar_com.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = nizarnizar_com.xcdatamodel; sourceTree = "<group>"; };
 		2B5041691CC275C80066BEB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 		2B50415D1CC275C60066BEB0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2B50415C1CC275C60066BEB0 /* nizarnizar.com.app */,
+				2B50415C1CC275C60066BEB0 /* nizarnizar.app */,
 				2B5041731CC275C80066BEB0 /* nizarnizar.comTests.xctest */,
 				2B50417E1CC275C80066BEB0 /* nizarnizar.comUITests.xctest */,
 			);
@@ -342,9 +342,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2B50415B1CC275C60066BEB0 /* nizarnizar.com */ = {
+		2B50415B1CC275C60066BEB0 /* nizarnizar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2B5041871CC275C80066BEB0 /* Build configuration list for PBXNativeTarget "nizarnizar.com" */;
+			buildConfigurationList = 2B5041871CC275C80066BEB0 /* Build configuration list for PBXNativeTarget "nizarnizar" */;
 			buildPhases = (
 				DDE441EC6F11E60F8614106E /* Check Pods Manifest.lock */,
 				2B5041581CC275C60066BEB0 /* Sources */,
@@ -357,9 +357,9 @@
 			);
 			dependencies = (
 			);
-			name = nizarnizar.com;
+			name = nizarnizar;
 			productName = nizarnizar.com;
-			productReference = 2B50415C1CC275C60066BEB0 /* nizarnizar.com.app */;
+			productReference = 2B50415C1CC275C60066BEB0 /* nizarnizar.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2B5041721CC275C80066BEB0 /* nizarnizar.comTests */ = {
@@ -434,7 +434,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2B50415B1CC275C60066BEB0 /* nizarnizar.com */,
+				2B50415B1CC275C60066BEB0 /* nizarnizar */,
 				2B5041721CC275C80066BEB0 /* nizarnizar.comTests */,
 				2B50417D1CC275C80066BEB0 /* nizarnizar.comUITests */,
 			);
@@ -570,12 +570,12 @@
 /* Begin PBXTargetDependency section */
 		2B5041751CC275C80066BEB0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2B50415B1CC275C60066BEB0 /* nizarnizar.com */;
+			target = 2B50415B1CC275C60066BEB0 /* nizarnizar */;
 			targetProxy = 2B5041741CC275C80066BEB0 /* PBXContainerItemProxy */;
 		};
 		2B5041801CC275C80066BEB0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2B50415B1CC275C60066BEB0 /* nizarnizar.com */;
+			target = 2B50415B1CC275C60066BEB0 /* nizarnizar */;
 			targetProxy = 2B50417F1CC275C80066BEB0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -767,7 +767,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2B5041871CC275C80066BEB0 /* Build configuration list for PBXNativeTarget "nizarnizar.com" */ = {
+		2B5041871CC275C80066BEB0 /* Build configuration list for PBXNativeTarget "nizarnizar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2B5041881CC275C80066BEB0 /* Debug */,
