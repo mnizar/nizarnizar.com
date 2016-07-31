@@ -219,9 +219,9 @@
 		2B5041901CC294950066BEB0 /* Classess */ = {
 			isa = PBXGroup;
 			children = (
-				2B5041B91CEE2F300066BEB0 /* Utils */,
 				2B5041A01CC2968B0066BEB0 /* AppDelegate.swift */,
 				2B5041AE1CDB64220066BEB0 /* Constants.swift */,
+				2B5041B91CEE2F300066BEB0 /* Utils */,
 				2B5041981CC295330066BEB0 /* Views */,
 				2B5041971CC295110066BEB0 /* Addition */,
 				2B5041961CC295080066BEB0 /* Components */,

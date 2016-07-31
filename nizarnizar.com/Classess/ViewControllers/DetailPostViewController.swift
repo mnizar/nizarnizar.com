@@ -151,7 +151,16 @@ class DetailPostViewController: BaseViewController {
         }
         agrume.showFrom(self)
     }
-
+    
+    // MARK: - Actions
+    @IBAction func shareButtonDidClicked(sender : UIButton) {
+        let indexPath  = NSIndexPath(forRow: 0, inSection: 0)
+        let blogPost = fetchedResultsController.objectAtIndexPath(indexPath) as? BlogPost
+        if let blog = blogPost {
+            let activityViewController = UIActivityViewController(activityItems: [blog.titlePost as NSString, NSURL(string: blog.sourceUrl)!], applicationActivities: nil)
+            presentViewController(activityViewController, animated: true, completion: {})
+        }
+    }
     
     // MARK: - Navigation
 

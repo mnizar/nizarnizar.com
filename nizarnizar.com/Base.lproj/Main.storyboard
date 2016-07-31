@@ -265,29 +265,51 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xJ8-gM-L6b">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="205"/>
+                                                    <rect key="frame" x="0.0" y="5" width="600" height="279"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="205" id="IN3-36-bzn"/>
                                                     </constraints>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="IN3-36-bzn"/>
+                                                        </mask>
+                                                    </variation>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camping ala-ala di Ranca Upas, Bandung Selatan" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="580" translatesAutoresizingMaskIntoConstraints="NO" id="UbU-zg-ajx">
-                                                    <rect key="frame" x="10" y="215" width="580" height="51"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yh2-gM-LWe">
+                                                    <rect key="frame" x="0.0" y="223" width="600" height="61"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Camping ala-ala di Ranca Upas, Bandung Selatan" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UbU-zg-ajx">
+                                                    <rect key="frame" x="30" y="238" width="540" height="31"/>
+                                                    <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="UbU-zg-ajx" firstAttribute="leading" secondItem="JX8-QU-FcX" secondAttribute="leading" constant="10" id="7gx-3S-Kgd"/>
+                                                <constraint firstItem="UbU-zg-ajx" firstAttribute="leading" secondItem="JX8-QU-FcX" secondAttribute="leading" constant="30" id="7gx-3S-Kgd"/>
+                                                <constraint firstItem="Yh2-gM-LWe" firstAttribute="leading" secondItem="JX8-QU-FcX" secondAttribute="leading" id="AXJ-ZU-qii"/>
+                                                <constraint firstItem="Yh2-gM-LWe" firstAttribute="top" secondItem="UbU-zg-ajx" secondAttribute="top" constant="-15" id="Agz-ie-uZ7"/>
                                                 <constraint firstAttribute="trailing" secondItem="xJ8-gM-L6b" secondAttribute="trailing" id="BBS-VW-b8k"/>
-                                                <constraint firstAttribute="bottom" secondItem="UbU-zg-ajx" secondAttribute="bottom" constant="18" id="P28-k6-z5N"/>
+                                                <constraint firstAttribute="bottom" secondItem="Yh2-gM-LWe" secondAttribute="bottom" id="NO5-aL-B6z"/>
+                                                <constraint firstAttribute="trailing" secondItem="Yh2-gM-LWe" secondAttribute="trailing" id="Nen-Yp-Yvw"/>
+                                                <constraint firstAttribute="bottom" secondItem="UbU-zg-ajx" secondAttribute="bottom" constant="15" id="P28-k6-z5N"/>
                                                 <constraint firstItem="xJ8-gM-L6b" firstAttribute="leading" secondItem="JX8-QU-FcX" secondAttribute="leading" id="SO7-9E-lam"/>
-                                                <constraint firstItem="xJ8-gM-L6b" firstAttribute="top" secondItem="JX8-QU-FcX" secondAttribute="top" id="gL6-O2-g9S"/>
-                                                <constraint firstItem="UbU-zg-ajx" firstAttribute="top" secondItem="xJ8-gM-L6b" secondAttribute="bottom" constant="10" id="hai-on-6ki"/>
-                                                <constraint firstAttribute="trailing" secondItem="UbU-zg-ajx" secondAttribute="trailing" constant="10" id="yuP-g2-5du"/>
+                                                <constraint firstItem="xJ8-gM-L6b" firstAttribute="top" secondItem="JX8-QU-FcX" secondAttribute="top" constant="5" id="gL6-O2-g9S"/>
+                                                <constraint firstItem="UbU-zg-ajx" firstAttribute="top" secondItem="xJ8-gM-L6b" secondAttribute="bottom" id="hai-on-6ki"/>
+                                                <constraint firstAttribute="bottom" secondItem="xJ8-gM-L6b" secondAttribute="bottom" id="otF-42-1IA"/>
+                                                <constraint firstItem="Yh2-gM-LWe" firstAttribute="height" secondItem="UbU-zg-ajx" secondAttribute="height" id="ss1-Ov-lyz"/>
+                                                <constraint firstAttribute="trailing" secondItem="UbU-zg-ajx" secondAttribute="trailing" constant="30" id="yuP-g2-5du"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="hai-on-6ki"/>
+                                                    <exclude reference="ss1-Ov-lyz"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="backgroundTitleLabelImageView" destination="Yh2-gM-LWe" id="W9q-JZ-UJm"/>
                                             <outlet property="blogTitleLabel" destination="UbU-zg-ajx" id="nFm-Bj-Ulj"/>
                                             <outlet property="featuredImageView" destination="xJ8-gM-L6b" id="vWN-ZB-Emg"/>
                                         </connections>
@@ -408,6 +430,18 @@
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="onF-Xy-yoh">
+                        <barButtonItem key="rightBarButtonItem" id="Yqw-XW-OZu">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xuN-0E-taf">
+                                <rect key="frame" x="550" y="7" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="share"/>
+                                <connections>
+                                    <action selector="shareButtonDidClicked:" destination="IwW-U5-srZ" eventType="touchUpInside" id="Uk6-zR-CGU"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="errorView" destination="p8R-BG-2Qp" id="P98-f7-YU1"/>
                         <outlet property="loadingIndicatorView" destination="Vec-2r-1E5" id="ff0-dD-WKV"/>
@@ -532,6 +566,7 @@
     </scenes>
     <resources>
         <image name="profilePic" width="4608" height="3072"/>
+        <image name="share" width="30" height="30"/>
         <image name="sideMenu" width="24" height="24"/>
     </resources>
 </document>

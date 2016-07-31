@@ -9,13 +9,16 @@
 import UIKit
 import SafariServices
 import Agrume
+import MessageUI
 
 enum AboutMenu: Int {
     case linkedin = 0
     case facebook
     case instagram
     case twitter
+    case github
     case aboutMe
+    case email
 }
 
 class AboutViewController: BaseViewController {
@@ -49,6 +52,26 @@ class AboutViewController: BaseViewController {
         }
     }
     
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        
+        mailComposerVC.setToRecipients(["muhamma.nizar@gmail.com"])
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let alertController = UIAlertController(title:NSLocalizedString("Could Not Send Email", comment: ""), message: NSLocalizedString("Your device could not send e-mail.  Please check e-mail configuration and try again", comment:""), preferredStyle: .Alert)
+        
+        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action:UIAlertAction) in
+            print("You've pressed OK button");
+        }
+        
+        alertController.addAction(OKAction)
+        self.presentViewController(alertController, animated: true, completion:nil)
+    }
+    
     /*
      // MARK: - Navigation
      
@@ -66,32 +89,39 @@ extension AboutViewController : UITableViewDataSource {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 5
+        return 7
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("SideMenuTableViewCell", forIndexPath: indexPath) as! SideMenuTableViewCell
         cell.delegate = self
-        switch indexPath.row {
-        case 0:
-            cell.titleMenuButton.setTitle("Linkedin", forState: .Normal)
-            break
-        case 1:
-            cell.titleMenuButton.setTitle("Facebook", forState: .Normal)
-            break
-        case 2:
-            cell.titleMenuButton.setTitle("Instagram", forState: .Normal)
-            break
-        case 3:
-            cell.titleMenuButton.setTitle("Twitter", forState: .Normal)
-            break
-        case 4:
-            cell.titleMenuButton.setTitle("About.me", forState: .Normal)
-            break
-        default:
-            break
+        if let menu = AboutMenu(rawValue: indexPath.row) {
+            var titleString = ""
+            switch menu {
+            case .linkedin:
+                titleString = "Linkedin"
+                break
+            case .facebook:
+                titleString = "Facebook"
+                break
+            case .instagram:
+                titleString = "Instagram"
+                break
+            case .twitter:
+                titleString = "Twitter"
+                break
+            case .aboutMe:
+                titleString = "About.me"
+                break
+            case .github:
+                titleString = "Github"
+                break
+            case .email:
+                titleString = "Email"
+                break
+            }
+            cell.titleMenuButton.setTitle(titleString, forState: .Normal)
         }
-        
         return cell
     }
 }
@@ -111,6 +141,15 @@ extension AboutViewController : UITableViewDelegate {
     
     func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.0
+    }
+}
+
+// MARK: MFMailComposeViewControllerDelegate
+extension AboutViewController : MFMailComposeViewControllerDelegate {
+
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        controller.dismissViewControllerAnimated(true, completion: nil)
+        
     }
 }
 
@@ -136,10 +175,25 @@ extension AboutViewController : SideMenuTableViewCellDelegate {
             case .aboutMe:
                 urlString = "http://about.me/muhammad.nizar"
                 break
+            case .github:
+                urlString = "https://github.com/mnizar"
+                break
+            case .email:
+                urlString = "muhamma.nizar@gmail.com"
+                break
             }
             
-            let svc = SFSafariViewController(URL: NSURL(string: urlString)!)
-            self.presentViewController(svc, animated: true, completion: nil)
+            if (menu == .email) {
+                let mailComposeViewController = configuredMailComposeViewController()
+                if MFMailComposeViewController.canSendMail() {
+                    self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+                } else {
+                    self.showSendMailErrorAlert()
+                }
+            } else {
+                let svc = SFSafariViewController(URL: NSURL(string: urlString)!)
+                self.presentViewController(svc, animated: true, completion: nil)
+            }
         }
     }
 }

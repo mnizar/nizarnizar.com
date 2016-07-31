@@ -12,6 +12,7 @@ class BlogTableViewCell: UITableViewCell {
     
     @IBOutlet weak var featuredImageView : UIImageView!
     @IBOutlet weak var blogTitleLabel : UILabel!
+    @IBOutlet weak var backgroundTitleLabelImageView : UIImageView!
     
 
     override func awakeFromNib() {
@@ -20,9 +21,16 @@ class BlogTableViewCell: UITableViewCell {
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
+        let backgroundImageViewColor = backgroundTitleLabelImageView.backgroundColor
+        super.setSelected(selected, animated: animated)
+        backgroundTitleLabelImageView.backgroundColor = backgroundImageViewColor
     }
-
+    
+    override func setHighlighted(highlighted: Bool, animated: Bool) {
+        // Configure the view for the selected state
+        let backgroundImageViewColor = backgroundTitleLabelImageView.backgroundColor
+        super.setHighlighted(highlighted, animated: animated)
+        backgroundTitleLabelImageView.backgroundColor = backgroundImageViewColor
+    }
 }
