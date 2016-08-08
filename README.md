@@ -1,11 +1,17 @@
 # nizarnizar.com
 iOS application for nizarnizar.com written in Swift.
 
+Introduction
+-------------
+- [Read Here..](http://nizarnizar.com/blog/2016/08/nizarnizar-com-for-ios-available-on-github)
+
+
+
 Starting
 ---------
 Download or clone git with url 
 
-https://github.com/mnizar/nizarnizar.com.git
+`https://github.com/mnizar/nizarnizar.com.git`
 
 - Run `pod install` first 
 - open file `nizarnizar.com.xcworkspace`
