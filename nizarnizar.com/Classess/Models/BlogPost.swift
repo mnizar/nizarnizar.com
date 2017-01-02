@@ -14,9 +14,9 @@ class BlogPost: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
     
-     class func InsertBlogPostWithArray(parsedArray: [[String : AnyObject]], inCategory: Int) {
+     class func InsertBlogPostWithArray(_ parsedArray: [[String : AnyObject]], inCategory: Int) {
         
-        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
         
         for dictionary in parsedArray {
             InsertBlogPostWithDictionary(dictionary, inCategory: inCategory)
@@ -29,17 +29,17 @@ class BlogPost: NSManagedObject {
         }
     }
     
-    class func InsertBlogPostWithDictionary(dictionary: [String : AnyObject], inCategory: Int) {
-        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    class func InsertBlogPostWithDictionary(_ dictionary: [String : AnyObject], inCategory: Int) {
+        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
         let postIDString = dictionary["postID"]!.stringValue
         // success ...
-        let fetchRequest = NSFetchRequest(entityName: "BlogPost")
-        let predicate = NSPredicate(format: "postID == %@", postIDString)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "BlogPost")
+        let predicate = NSPredicate(format: "postID == %@", postIDString!)
         fetchRequest.predicate = predicate
-        let fetchResults = try! managedObjectContext.executeFetchRequest(fetchRequest) as? [BlogPost]
+        let fetchResults = try! managedObjectContext.fetch(fetchRequest) as? [BlogPost]
         
         if (fetchResults!.count == 0) {
-            let blogPost = NSEntityDescription.insertNewObjectForEntityForName("BlogPost", inManagedObjectContext: managedObjectContext) as! BlogPost
+            let blogPost = NSEntityDescription.insertNewObject(forEntityName: "BlogPost", into: managedObjectContext) as! BlogPost
             
             if let postID : String = postIDString {
                 blogPost.postID = postID
@@ -54,7 +54,7 @@ class BlogPost: NSManagedObject {
             }
             
             if let createdDate = dictionary["createdDate"] {
-                blogPost.createdDate = createdDate as! NSDate
+                blogPost.createdDate = createdDate as! Date
             }
             
             if let contentHTML = dictionary["contentHTML"] {
@@ -72,14 +72,14 @@ class BlogPost: NSManagedObject {
     }
     
     class func deleteAllPost() {
-        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        let fetchRequest = NSFetchRequest()
-        fetchRequest.entity = NSEntityDescription.entityForName("BlogPost", inManagedObjectContext: managedObjectContext)
+        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
+        fetchRequest.entity = NSEntityDescription.entity(forEntityName: "BlogPost", in: managedObjectContext)
         fetchRequest.includesPropertyValues = false
         do {
-            if let results = try managedObjectContext.executeFetchRequest(fetchRequest) as? [NSManagedObject] {
+            if let results = try managedObjectContext.fetch(fetchRequest) as? [NSManagedObject] {
                 for result in results {
-                    managedObjectContext.deleteObject(result)
+                    managedObjectContext.delete(result)
                 }
                 
                 try managedObjectContext.save()

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		243EFFB27F9E990B19F3FF6B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF17E7D4B74076E586A16D7D /* Pods.framework */; };
 		2B283A011D4C90AA00716DAA /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B283A001D4C90AA00716DAA /* ContainerViewController.swift */; };
 		2B283A041D4C9B4E00716DAA /* BlogPost+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B283A021D4C9B4E00716DAA /* BlogPost+CoreDataProperties.swift */; };
 		2B283A051D4C9B4E00716DAA /* BlogPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B283A031D4C9B4E00716DAA /* BlogPost.swift */; };
@@ -38,6 +37,9 @@
 		2B5041AD1CDB63B10066BEB0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5041AC1CDB63B10066BEB0 /* BaseViewController.swift */; };
 		2B5041AF1CDB64220066BEB0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5041AE1CDB64220066BEB0 /* Constants.swift */; };
 		2B5041BB1CEE2F960066BEB0 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5041BA1CEE2F950066BEB0 /* DateFormatter.swift */; };
+		68D5432DAF38A5BD591B4671 /* Pods_nizarnizar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF004628B440A982C157F04 /* Pods_nizarnizar.framework */; };
+		84A29CE9C8C28EFD0EFAF981 /* Pods_nizarnizar_comTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 534C1031E7553F7351311CD4 /* Pods_nizarnizar_comTests.framework */; };
+		FC4F31D3AECACCD3BA6D6F1D /* Pods_nizarnizar_comUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA8FBC4943D864F2EC2507A9 /* Pods_nizarnizar_comUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +60,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1065926A877EA77AFC9ECBBA /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		1F1E162FCED6D20BD1EB2492 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		0BDE0A156B598ACDA5C8A515 /* Pods-nizarnizar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nizarnizar.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nizarnizar/Pods-nizarnizar.debug.xcconfig"; sourceTree = "<group>"; };
+		110F9DF322A9F35CF8F5E6F2 /* Pods-nizarnizar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nizarnizar.release.xcconfig"; path = "Pods/Target Support Files/Pods-nizarnizar/Pods-nizarnizar.release.xcconfig"; sourceTree = "<group>"; };
+		278C7D6C1EB8A591F33D240B /* Pods-nizarnizar.comTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nizarnizar.comTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nizarnizar.comTests/Pods-nizarnizar.comTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2B283A001D4C90AA00716DAA /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContainerViewController.swift; path = Classess/ViewControllers/ContainerViewController.swift; sourceTree = "<group>"; };
 		2B283A021D4C9B4E00716DAA /* BlogPost+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "BlogPost+CoreDataProperties.swift"; path = "Classess/Models/BlogPost+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2B283A031D4C9B4E00716DAA /* BlogPost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlogPost.swift; path = Classess/Models/BlogPost.swift; sourceTree = "<group>"; };
@@ -96,6 +99,12 @@
 		2B5041AC1CDB63B10066BEB0 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = Classess/ViewControllers/BaseViewController.swift; sourceTree = "<group>"; };
 		2B5041AE1CDB64220066BEB0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Classess/Constants.swift; sourceTree = "<group>"; };
 		2B5041BA1CEE2F950066BEB0 /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateFormatter.swift; path = Classess/Utils/DateFormatter.swift; sourceTree = "<group>"; };
+		2CF004628B440A982C157F04 /* Pods_nizarnizar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nizarnizar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		534C1031E7553F7351311CD4 /* Pods_nizarnizar_comTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nizarnizar_comTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		76A5D2F6AFF4D5B6270F7B6C /* Pods-nizarnizar.comTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nizarnizar.comTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-nizarnizar.comTests/Pods-nizarnizar.comTests.release.xcconfig"; sourceTree = "<group>"; };
+		9F3D72BAF557CA990AD87CEA /* Pods-nizarnizar.comUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nizarnizar.comUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-nizarnizar.comUITests/Pods-nizarnizar.comUITests.release.xcconfig"; sourceTree = "<group>"; };
+		B76A82470FB25C031313A1C6 /* Pods-nizarnizar.comUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nizarnizar.comUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-nizarnizar.comUITests/Pods-nizarnizar.comUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		EA8FBC4943D864F2EC2507A9 /* Pods_nizarnizar_comUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nizarnizar_comUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF17E7D4B74076E586A16D7D /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -104,7 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				243EFFB27F9E990B19F3FF6B /* Pods.framework in Frameworks */,
+				68D5432DAF38A5BD591B4671 /* Pods_nizarnizar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A29CE9C8C28EFD0EFAF981 /* Pods_nizarnizar_comTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,17 +129,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC4F31D3AECACCD3BA6D6F1D /* Pods_nizarnizar_comUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1F8F74B4F5193F242704063C /* Pods */ = {
+		04348B7A2A0CD9E47A0B50F8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				1065926A877EA77AFC9ECBBA /* Pods.debug.xcconfig */,
-				1F1E162FCED6D20BD1EB2492 /* Pods.release.xcconfig */,
+				0BDE0A156B598ACDA5C8A515 /* Pods-nizarnizar.debug.xcconfig */,
+				110F9DF322A9F35CF8F5E6F2 /* Pods-nizarnizar.release.xcconfig */,
+				278C7D6C1EB8A591F33D240B /* Pods-nizarnizar.comTests.debug.xcconfig */,
+				76A5D2F6AFF4D5B6270F7B6C /* Pods-nizarnizar.comTests.release.xcconfig */,
+				B76A82470FB25C031313A1C6 /* Pods-nizarnizar.comUITests.debug.xcconfig */,
+				9F3D72BAF557CA990AD87CEA /* Pods-nizarnizar.comUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -167,8 +182,8 @@
 				2B5041761CC275C80066BEB0 /* nizarnizar.comTests */,
 				2B5041811CC275C80066BEB0 /* nizarnizar.comUITests */,
 				2B50415D1CC275C60066BEB0 /* Products */,
-				1F8F74B4F5193F242704063C /* Pods */,
 				BDB58AE2E14FCD921A710217 /* Frameworks */,
+				04348B7A2A0CD9E47A0B50F8 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -335,6 +350,9 @@
 			isa = PBXGroup;
 			children = (
 				FF17E7D4B74076E586A16D7D /* Pods.framework */,
+				2CF004628B440A982C157F04 /* Pods_nizarnizar.framework */,
+				534C1031E7553F7351311CD4 /* Pods_nizarnizar_comTests.framework */,
+				EA8FBC4943D864F2EC2507A9 /* Pods_nizarnizar_comUITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -346,12 +364,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B5041871CC275C80066BEB0 /* Build configuration list for PBXNativeTarget "nizarnizar" */;
 			buildPhases = (
-				DDE441EC6F11E60F8614106E /* Check Pods Manifest.lock */,
+				A266C897D7918E2630E023E7 /* [CP] Check Pods Manifest.lock */,
 				2B5041581CC275C60066BEB0 /* Sources */,
 				2B5041591CC275C60066BEB0 /* Frameworks */,
 				2B50415A1CC275C60066BEB0 /* Resources */,
-				9819A4E0DBE655BD5C69E227 /* Embed Pods Frameworks */,
-				E0563F7CEEFCC3BE9CD4617D /* Copy Pods Resources */,
+				3706088B294F25B7A6044B81 /* [CP] Embed Pods Frameworks */,
+				2594643801929FDB4626BAF8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -366,9 +384,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B50418A1CC275C80066BEB0 /* Build configuration list for PBXNativeTarget "nizarnizar.comTests" */;
 			buildPhases = (
+				356BF6D35330889E8A3112B6 /* [CP] Check Pods Manifest.lock */,
 				2B50416F1CC275C80066BEB0 /* Sources */,
 				2B5041701CC275C80066BEB0 /* Frameworks */,
 				2B5041711CC275C80066BEB0 /* Resources */,
+				FA36C0B6462984E137525574 /* [CP] Embed Pods Frameworks */,
+				724E0EAA53C5D517CCE07302 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -384,9 +405,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2B50418D1CC275C80066BEB0 /* Build configuration list for PBXNativeTarget "nizarnizar.comUITests" */;
 			buildPhases = (
+				E2DD44EA5EA2ACD418B07B97 /* [CP] Check Pods Manifest.lock */,
 				2B50417A1CC275C80066BEB0 /* Sources */,
 				2B50417B1CC275C80066BEB0 /* Frameworks */,
 				2B50417C1CC275C80066BEB0 /* Resources */,
+				333AAB061608A4AFE10EF73D /* [CP] Embed Pods Frameworks */,
+				FA6A451EFB059349D144AE51 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -405,18 +429,21 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0730;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Surocode Inc";
 				TargetAttributes = {
 					2B50415B1CC275C60066BEB0 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0820;
 					};
 					2B5041721CC275C80066BEB0 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0820;
 						TestTargetID = 2B50415B1CC275C60066BEB0;
 					};
 					2B50417D1CC275C80066BEB0 = {
 						CreatedOnToolsVersion = 7.3;
+						LastSwiftMigration = 0820;
 						TestTargetID = 2B50415B1CC275C60066BEB0;
 					};
 				};
@@ -472,49 +499,139 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9819A4E0DBE655BD5C69E227 /* Embed Pods Frameworks */ = {
+		2594643801929FDB4626BAF8 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nizarnizar/Pods-nizarnizar-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DDE441EC6F11E60F8614106E /* Check Pods Manifest.lock */ = {
+		333AAB061608A4AFE10EF73D /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nizarnizar.comUITests/Pods-nizarnizar.comUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E0563F7CEEFCC3BE9CD4617D /* Copy Pods Resources */ = {
+		356BF6D35330889E8A3112B6 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3706088B294F25B7A6044B81 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nizarnizar/Pods-nizarnizar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		724E0EAA53C5D517CCE07302 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nizarnizar.comTests/Pods-nizarnizar.comTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A266C897D7918E2630E023E7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E2DD44EA5EA2ACD418B07B97 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FA36C0B6462984E137525574 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nizarnizar.comTests/Pods-nizarnizar.comTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA6A451EFB059349D144AE51 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-nizarnizar.comUITests/Pods-nizarnizar.comUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -614,8 +731,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -642,6 +761,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -659,8 +779,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -679,78 +801,94 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 2.3;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 		2B5041881CC275C80066BEB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1065926A877EA77AFC9ECBBA /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 0BDE0A156B598ACDA5C8A515 /* Pods-nizarnizar.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = nizarnizar.com/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.surocode.nizarnizar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		2B5041891CC275C80066BEB0 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1F1E162FCED6D20BD1EB2492 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 110F9DF322A9F35CF8F5E6F2 /* Pods-nizarnizar.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = nizarnizar.com/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.surocode.nizarnizar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 		2B50418B1CC275C80066BEB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 278C7D6C1EB8A591F33D240B /* Pods-nizarnizar.comTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = nizarnizar.comTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.surocode.nizarnizar-comTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nizarnizar.com.app/nizarnizar.com";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nizarnizar.app/nizarnizar";
 			};
 			name = Debug;
 		};
 		2B50418C1CC275C80066BEB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76A5D2F6AFF4D5B6270F7B6C /* Pods-nizarnizar.comTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = nizarnizar.comTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.surocode.nizarnizar-comTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nizarnizar.com.app/nizarnizar.com";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/nizarnizar.app/nizarnizar";
 			};
 			name = Release;
 		};
 		2B50418E1CC275C80066BEB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B76A82470FB25C031313A1C6 /* Pods-nizarnizar.comUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = nizarnizar.comUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.surocode.nizarnizar-comUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = nizarnizar.com;
 			};
 			name = Debug;
 		};
 		2B50418F1CC275C80066BEB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F3D72BAF557CA990AD87CEA /* Pods-nizarnizar.comUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = nizarnizar.comUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.surocode.nizarnizar-comUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = nizarnizar.com;
 			};
 			name = Release;
