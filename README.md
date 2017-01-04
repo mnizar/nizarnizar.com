@@ -12,7 +12,7 @@ Introduction
 - iOS 9.0+
 - Xcode 8
 
-'(For Swift 2.2, Xcode 7.2, and iOS 8.0 see branch feature/swift2.2)'
+`(For Swift 2.2, Xcode 7.2, and iOS 8.0 see branch feature/swift2.2)`
 
 
 Starting
