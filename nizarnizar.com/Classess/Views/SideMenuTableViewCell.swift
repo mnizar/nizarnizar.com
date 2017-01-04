@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SideMenuTableViewCellDelegate {
-    func menuButtonDidClicked(cell : UITableViewCell)
+    func menuButtonDidClicked(_ cell : UITableViewCell)
 }
 
 class SideMenuTableViewCell: UITableViewCell {

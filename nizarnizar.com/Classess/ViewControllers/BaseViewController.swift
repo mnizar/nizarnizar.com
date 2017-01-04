@@ -22,7 +22,7 @@ class BaseViewController: UIViewController {
     }
     
     // MARK: - Actions
-    @IBAction func sideMenuButtonDidClicked(sender:UIButton) {
+    @IBAction func sideMenuButtonDidClicked(_ sender:UIButton) {
         self.slideMenuController()?.openLeft()
     }
 

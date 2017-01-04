@@ -14,11 +14,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-nizarnizar.com.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Pods-nizarnizar.comTests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -29,7 +24,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods.xcscheme</key>
+		<key>Pods-nizarnizar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -44,12 +39,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>SwiftString-SwiftString.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>SwiftString.xcscheme</key>
+		<key>SwiftString3.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -57,52 +47,42 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>09CF4D1D9EFA7AC91A403D748E51C4CF</key>
+		<key>02259D9603530AA24D389F76D24CDEE7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>45E2302420E18CC66015962EB9577F6B</key>
+		<key>33CC8D459BEBAF31F2AAD6F355A842BD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5F67FA136228560EF9B5C14BF06F7060</key>
+		<key>709B37C87082FC138C02EA729A3F8D0C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
+		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7BA2BF64FC49C8E47BB83CF439C2F9A8</key>
+		<key>9DCD1FE7FE9274A05533F6A86884A622</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>89327681F58A8E59C63A0DF3C662F347</key>
+		<key>A4050A4246F1B0FAADD9C7FD4483040E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9883A8BDA2E15386EFCA44326901C024</key>
+		<key>F8000D616D7BC63C9707ADCC606AE039</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9AB70460F3448046FC98A6588C7E7913</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F38B647C5DBBAFCE7F3947812A26C3F2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FF389DD5BC828268615457851C56C23C</key>
+		<key>F9318A14F3C211BB1E944558707C3F38</key>
 		<dict>
 			<key>primary</key>
 			<true/>

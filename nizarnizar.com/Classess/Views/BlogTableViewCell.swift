@@ -20,14 +20,14 @@ class BlogTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         // Configure the view for the selected state
         let backgroundImageViewColor = backgroundTitleLabelImageView.backgroundColor
         super.setSelected(selected, animated: animated)
         backgroundTitleLabelImageView.backgroundColor = backgroundImageViewColor
     }
     
-    override func setHighlighted(highlighted: Bool, animated: Bool) {
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         // Configure the view for the selected state
         let backgroundImageViewColor = backgroundTitleLabelImageView.backgroundColor
         super.setHighlighted(highlighted, animated: animated)

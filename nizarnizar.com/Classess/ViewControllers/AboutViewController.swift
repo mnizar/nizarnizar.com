@@ -33,7 +33,7 @@ class AboutViewController: BaseViewController {
         
         // Do any additional setup after loading the view.
         let tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(openImage))
-        photoImageView.userInteractionEnabled = true
+        photoImageView.isUserInteractionEnabled = true
         photoImageView.addGestureRecognizer(tapGesture)
         
     }
@@ -62,14 +62,14 @@ class AboutViewController: BaseViewController {
     }
     
     func showSendMailErrorAlert() {
-        let alertController = UIAlertController(title:NSLocalizedString("Could Not Send Email", comment: ""), message: NSLocalizedString("Your device could not send e-mail.  Please check e-mail configuration and try again", comment:""), preferredStyle: .Alert)
+        let alertController = UIAlertController(title:NSLocalizedString("Could Not Send Email", comment: ""), message: NSLocalizedString("Your device could not send e-mail.  Please check e-mail configuration and try again", comment:""), preferredStyle: .alert)
         
-        let OKAction = UIAlertAction(title: "OK", style: .Default) { (action:UIAlertAction) in
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction) in
             print("You've pressed OK button");
         }
         
         alertController.addAction(OKAction)
-        self.presentViewController(alertController, animated: true, completion:nil)
+        self.present(alertController, animated: true, completion:nil)
     }
     
     /*
@@ -87,13 +87,13 @@ class AboutViewController: BaseViewController {
 // MARK: - UITableViewDataSource
 extension AboutViewController : UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return 7
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("SideMenuTableViewCell", forIndexPath: indexPath) as! SideMenuTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SideMenuTableViewCell", for: indexPath) as! SideMenuTableViewCell
         cell.delegate = self
         if let menu = AboutMenu(rawValue: indexPath.row) {
             var titleString = ""
@@ -120,7 +120,7 @@ extension AboutViewController : UITableViewDataSource {
                 titleString = "Email"
                 break
             }
-            cell.titleMenuButton.setTitle(titleString, forState: .Normal)
+            cell.titleMenuButton.setTitle(titleString, for: UIControlState())
         }
         return cell
     }
@@ -130,16 +130,16 @@ extension AboutViewController : UITableViewDataSource {
 
 extension AboutViewController : UITableViewDelegate {
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
     
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 55.0
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.0
     }
 }
@@ -147,16 +147,16 @@ extension AboutViewController : UITableViewDelegate {
 // MARK: MFMailComposeViewControllerDelegate
 extension AboutViewController : MFMailComposeViewControllerDelegate {
 
-    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
-        controller.dismissViewControllerAnimated(true, completion: nil)
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
         
     }
 }
 
 // MARK: - SideMenuTableViewCellDelegate
 extension AboutViewController : SideMenuTableViewCellDelegate {
-    func menuButtonDidClicked(cell : UITableViewCell) {
-        let indexPath = tableView.indexPathForCell(cell)
+    func menuButtonDidClicked(_ cell : UITableViewCell) {
+        let indexPath = tableView.indexPath(for: cell)
         if let menu = AboutMenu(rawValue: (indexPath?.row)!) {
             var urlString = ""
             switch menu {
@@ -186,13 +186,13 @@ extension AboutViewController : SideMenuTableViewCellDelegate {
             if (menu == .email) {
                 let mailComposeViewController = configuredMailComposeViewController()
                 if MFMailComposeViewController.canSendMail() {
-                    self.presentViewController(mailComposeViewController, animated: true, completion: nil)
+                    self.present(mailComposeViewController, animated: true, completion: nil)
                 } else {
                     self.showSendMailErrorAlert()
                 }
             } else {
-                let svc = SFSafariViewController(URL: NSURL(string: urlString)!)
-                self.presentViewController(svc, animated: true, completion: nil)
+                let svc = SFSafariViewController(url: URL(string: urlString)!)
+                self.present(svc, animated: true, completion: nil)
             }
         }
     }
