@@ -7,16 +7,16 @@
 //
 
 import UIKit
-import SwiftString
+import SwiftString3
 
 class BlogPostParser: NNParser {
     
-    func parsedDictionaryFromDictionary(dictionary : [String : AnyObject]) -> [String : AnyObject]? {
+    func parsedDictionaryFromDictionary(_ dictionary : [String : AnyObject]) -> [String : AnyObject]? {
         var parsedDictionary = [String : AnyObject]()
         if let postTitle = dictionary["title"] {
             let encodedPostTitle = postTitle as! String
             let decodedPostTitle = encodedPostTitle.decodeHTML()
-            parsedDictionary["postTitle"] = decodedPostTitle
+            parsedDictionary["postTitle"] = decodedPostTitle as AnyObject?
         }
         
         if let slug = dictionary["slug"] {
@@ -25,7 +25,7 @@ class BlogPostParser: NNParser {
     
         if let created = dictionary["date"] as? String {
             let createdDate = DateFormatter.getDateFromString(created, dateFormat: "yyyy-MM-dd HH:mm:ss")
-            parsedDictionary["createdDate"] = createdDate
+            parsedDictionary["createdDate"] = createdDate as AnyObject?
         }
         
         if let contentHTMLString = dictionary["content"] {
@@ -51,7 +51,7 @@ class BlogPostParser: NNParser {
         return parsedDictionary
     }
     
-    func parsedArrayFromArray(array: [[String:AnyObject]]) -> [[String:AnyObject]]?{
+    func parsedArrayFromArray(_ array: [[String:AnyObject]]) -> [[String:AnyObject]]?{
         var parsedArray = [[String:AnyObject]]()
         for dictionary in array  {
             if let parsedDictionary = parsedDictionaryFromDictionary(dictionary) {

@@ -6,6 +6,14 @@ Introduction
 - [Read Here..](http://nizarnizar.com/blog/2016/08/nizarnizar-com-for-ios-available-on-github)
 
 
+## Requirements
+
+- Swift 3.0
+- iOS 9.0+
+- Xcode 8.2
+
+[For Swift 2.2, Xcode 7.2, and iOS 8.0 see branch swift2.2](https://github.com/mnizar/nizarnizar.com/tree/swift2.2)
+
 
 Starting
 ---------

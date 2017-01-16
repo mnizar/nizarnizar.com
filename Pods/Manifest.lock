@@ -1,24 +1,35 @@
 PODS:
-  - Agrume (2.7.0)
-  - Alamofire (3.4.1)
-  - SDWebImage (3.8.1):
-    - SDWebImage/Core (= 3.8.1)
-  - SDWebImage/Core (3.8.1)
-  - SlideMenuControllerSwift (2.2.2)
-  - SwiftString (0.5)
+  - Agrume (3.0.2)
+  - Alamofire (4.0.1)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - SlideMenuControllerSwift (3.0.0)
+  - SwiftString3 (1.0.11)
 
 DEPENDENCIES:
   - Agrume
-  - Alamofire (~> 3.3)
-  - SDWebImage (~> 3.8)
+  - Alamofire
+  - SDWebImage
   - SlideMenuControllerSwift
-  - SwiftString
+  - SwiftString3 (from `https://github.com/malt03/SwiftString.git`)
+
+EXTERNAL SOURCES:
+  SwiftString3:
+    :git: https://github.com/malt03/SwiftString.git
+
+CHECKOUT OPTIONS:
+  SwiftString3:
+    :commit: be9336215a6cacbb002164289297ad2c08dae895
+    :git: https://github.com/malt03/SwiftString.git
 
 SPEC CHECKSUMS:
-  Agrume: d61d044cd26db13ccad57da0366fbf14b8a0f242
-  Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
-  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
-  SlideMenuControllerSwift: e257221100c39d49edccaaeb0238b55a0c67953a
-  SwiftString: ec9c31c55b2aa147a1154f5f5f8483dc71e3165f
+  Agrume: 5698c55f02bb9bd60b6a32fea6ac0e8057ccb927
+  Alamofire: 7682d43245de14874acd142ec137b144aa1dd335
+  SDWebImage: '098e97e6176540799c27e804c96653ee0833d13c'
+  SlideMenuControllerSwift: 9c0a84f9a3fba51681debd7be77617094562ebcc
+  SwiftString3: ed1b665c0291c0b298e5afedf9a46bdbb4ffd3f1
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: bd290e8caf4227b12a363ba3e817de8bcb928f95
+
+COCOAPODS: 1.1.1

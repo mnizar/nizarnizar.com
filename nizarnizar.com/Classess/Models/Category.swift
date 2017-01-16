@@ -15,12 +15,12 @@ class Category: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
 
-    class func InsertCategoryWithArray(parsedArray: [[String : AnyObject]]) {
+    class func insertCategoryWithArray(_ parsedArray: [[String : AnyObject]]) {
         
-        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
         
         for dictionary in parsedArray {
-            InsertBlogPostWithDictionary(dictionary)
+            insertBlogPostWithDictionary(dictionary)
         }
         
         do {
@@ -30,17 +30,17 @@ class Category: NSManagedObject {
         }
     }
     
-    class func InsertBlogPostWithDictionary(dictionary: [String : AnyObject]) {
-        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    class func insertBlogPostWithDictionary(_ dictionary: [String : AnyObject]) {
+        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
         let categoryIDString = dictionary["id"]!.stringValue
         // success ...
-        let fetchRequest = NSFetchRequest(entityName: "Category")
-        let predicate = NSPredicate(format: "categoryID == %@", categoryIDString)
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Category")
+        let predicate = NSPredicate(format: "categoryID == %@", categoryIDString!)
         fetchRequest.predicate = predicate
-        let fetchResults = try! managedObjectContext.executeFetchRequest(fetchRequest) as? [NSManagedObject]
+        let fetchResults = try! managedObjectContext.fetch(fetchRequest) as? [NSManagedObject]
         
         if (fetchResults!.count == 0) {
-            let category = NSEntityDescription.insertNewObjectForEntityForName("Category", inManagedObjectContext: managedObjectContext) as! Category
+            let category = NSEntityDescription.insertNewObject(forEntityName: "Category", into: managedObjectContext) as! Category
             
             if let categoryID : String = categoryIDString {
                 category.categoryID = categoryID
@@ -59,20 +59,20 @@ class Category: NSManagedObject {
             }
             
             if let postCont = dictionary["post_count"] {
-                category.totalPost = NSNumber.init(integer:postCont.integerValue)
+                category.totalPost = NSNumber.init(value: postCont.intValue as Int)
             }
         }
     }
     
     class func deleteAllCategories() {
-        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        let fetchRequest = NSFetchRequest()
-        fetchRequest.entity = NSEntityDescription.entityForName("Category", inManagedObjectContext: managedObjectContext)
+        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
+        fetchRequest.entity = NSEntityDescription.entity(forEntityName: "Category", in: managedObjectContext)
         fetchRequest.includesPropertyValues = false
         do {
-            if let results = try managedObjectContext.executeFetchRequest(fetchRequest) as? [NSManagedObject] {
+            if let results = try managedObjectContext.fetch(fetchRequest) as? [NSManagedObject] {
                 for result in results {
-                    managedObjectContext.deleteObject(result)
+                    managedObjectContext.delete(result)
                 }
                 
                 try managedObjectContext.save()
@@ -83,10 +83,10 @@ class Category: NSManagedObject {
     }
     
     class func fetchAllCategories() -> [NSManagedObject]? {
-        let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        let fetchRequest = NSFetchRequest(entityName: "Category")
+        let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Category")
         do {
-            if let results = try managedObjectContext.executeFetchRequest(fetchRequest) as? [NSManagedObject] {
+            if let results = try managedObjectContext.fetch(fetchRequest) as? [NSManagedObject] {
                 return results
             }
         } catch {

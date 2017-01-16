@@ -10,7 +10,7 @@ import UIKit
 
 class WebBrowserViewController: BaseViewController {
     
-    var request : NSURLRequest!
+    var request : URLRequest!
     @IBOutlet weak var webView : UIWebView!
     @IBOutlet weak var loadingIndicatorView : UIActivityIndicatorView!
     @IBOutlet weak var errorView : UIView?
@@ -19,8 +19,8 @@ class WebBrowserViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        webView.hidden = true
-        errorView?.hidden = true
+        webView.isHidden = true
+        errorView?.isHidden = true
         
         webView.loadRequest(request)
     }
@@ -36,23 +36,24 @@ class WebBrowserViewController: BaseViewController {
 
 extension WebBrowserViewController: UIWebViewDelegate {
     
-    func webViewDidStartLoad(webView: UIWebView) {
-        webView.hidden = false
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        webView.isHidden = false
         self.loadingIndicatorView.startAnimating()
     }
     
-    func webViewDidFinishLoad(webView: UIWebView) {
+    func webViewDidFinishLoad(_ webView: UIWebView) {
         self.loadingIndicatorView.stopAnimating()
     }
     
-    func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-        if (error?.code == NSURLErrorCancelled ||
-            error?.code == NSURLErrorFileDoesNotExist) {
+    func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+        if  (error as NSError).code == NSURLErrorCancelled ||
+            (error as NSError).code == NSURLErrorFileDoesNotExist {
+            // code
             return
         }
     }
     
-    func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         
         return true
     }

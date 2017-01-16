@@ -15,7 +15,6 @@ import SlideMenuControllerSwift
 class BlogListViewController: BaseViewController {
     
     @IBOutlet weak var blogListTableView: UITableView!
-    var isFirstTimeLoad : Bool = false
     var isRequesting : Bool = false
     var hasMoreData : Bool = false
     var page : Int = 1
@@ -23,11 +22,11 @@ class BlogListViewController: BaseViewController {
     var refreshControl : UIRefreshControl!
     
     // Retreive the managedObjectContext from AppDelegate
-    let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+    let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
     
-    lazy var fetchedResultsController: NSFetchedResultsController = {
+    lazy var fetchedResultsController: NSFetchedResultsController<NSFetchRequestResult> = { 
         // Initialize Fetch Request
-        let fetchRequest = NSFetchRequest(entityName: "BlogPost")
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "BlogPost")
         
         // Add Sort Descriptors
         let sortDescriptor = NSSortDescriptor(key: "createdDate", ascending: false)
@@ -44,19 +43,19 @@ class BlogListViewController: BaseViewController {
     
     // MARK: - Life cycle
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        NSNotificationCenter.defaultCenter().removeObserver(self)
+        NotificationCenter.default.removeObserver(self)
     }
     
     
@@ -66,11 +65,10 @@ class BlogListViewController: BaseViewController {
         
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl.addTarget(self, action: #selector(refreshControllDidPulled(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshControllDidPulled(_:)), for: UIControlEvents.valueChanged)
         blogListTableView.addSubview(refreshControl)
 
         // Do any additional setup after loading the view.
-        self.isFirstTimeLoad = true;
         do {
             try self.fetchedResultsController.performFetch()
         } catch {
@@ -120,17 +118,17 @@ class BlogListViewController: BaseViewController {
     }
      */
     
-    func configureCell(tableViewCell: BlogTableViewCell , atIndexPath indexPath: NSIndexPath) {
+    func configureCell(_ tableViewCell: BlogTableViewCell , atIndexPath indexPath: IndexPath) {
         
         // Fetch Record
-        let blogPost = fetchedResultsController.objectAtIndexPath(indexPath) as! BlogPost
+        let blogPost = fetchedResultsController.object(at: indexPath) as! BlogPost
         
         // Update Cell
         tableViewCell.blogTitleLabel.text = blogPost.titlePost
         
-        if let imageURL = NSURL(string: blogPost.imageUrl) {
+        if let imageURL = URL(string: blogPost.imageUrl) {
             let placeholderImage = UIImage (named: "emptyPlaceholderImage")
-            tableViewCell.featuredImageView.sd_setImageWithURL(imageURL, placeholderImage: placeholderImage!)
+            tableViewCell.featuredImageView.sd_setImage(with: imageURL, placeholderImage: placeholderImage!)
         }
     }
     
@@ -148,7 +146,7 @@ class BlogListViewController: BaseViewController {
     }
 
     // MARK: - Actions
-    func refreshControllDidPulled(sender:AnyObject) {
+    func refreshControllDidPulled(_ sender:AnyObject) {
         page = 1
         requestBlogListWithOffset(page, limit: limitRequestPerPage)
     }
@@ -156,14 +154,14 @@ class BlogListViewController: BaseViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "showDetailPage"
         {
-            if let detailViewController = segue.destinationViewController as? DetailPostViewController {
+            if let detailViewController = segue.destination as? DetailPostViewController {
                 let indexPath = self.blogListTableView.indexPathForSelectedRow!
-                let blogPost = fetchedResultsController.objectAtIndexPath(indexPath) as! BlogPost
+                let blogPost = fetchedResultsController.object(at: indexPath) as! BlogPost
                 detailViewController.postID = blogPost.postID
                 detailViewController.title = blogPost.titlePost
             }
@@ -172,21 +170,20 @@ class BlogListViewController: BaseViewController {
     
     // MARK : -Request API
     
-    func requestBlogListWithOffset(offset : Int, limit: Int) {
+    func requestBlogListWithOffset(_ offset : Int, limit: Int) {
         self.isRequesting = true
-        Alamofire.request(.GET, "http://nizarnizar.com/blog/", parameters: ["json": "1", "page":offset, "count" : limit])
+        Alamofire.request("http://nizarnizar.com/blog/", parameters: ["json": "1", "page":offset, "count" : limit])
             .responseJSON { response in
-                if (self.refreshControl.refreshing) {
+                if (self.refreshControl.isRefreshing) {
                     self.refreshControl.endRefreshing()
                 }
                 self.isRequesting = false
-                self.isFirstTimeLoad = false
-                print(response.request)  // original URL request
+                print(response.request?.url?.absoluteString ?? "")  // original URL request
 //                print(response.response) // URL response
 //                print(response.data)     // server data
 //                print(response.result)   // result of response serialization
                 
-                if let JSON = response.result.value {
+                if let JSON = response.result.value as? [String:AnyObject] {
                     let responsePostArray = JSON["posts"] as! [[String:AnyObject]]
                     if (responsePostArray.count == 0) {
                         self.hasMoreData = false
@@ -201,41 +198,57 @@ class BlogListViewController: BaseViewController {
 //                    print(responsePostArray)
                     let parser = BlogPostParser()
                     if let parsedArray = parser.parsedArrayFromArray(responsePostArray) {
-                        BlogPost.InsertBlogPostWithArray(parsedArray, inCategory: 0)
+                        BlogPost.insertBlogPostWithArray(parsedArray, inCategory: 0)
                     }
                     
 //                    print(parsedArray)
                 }
+                
+                self.blogListTableView.reloadData()
         }
     }
 }
 
 // MARK: - UITableViewDataSource
 extension BlogListViewController : UITableViewDataSource {
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if let sections = fetchedResultsController.sections {
+            let currentSection = sections[section]
+            var totalPost = currentSection.numberOfObjects
+            if (totalPost > 0) {
+                if (hasMoreData) {
+                    totalPost = totalPost + 1
+                }
+                return totalPost
+            }
+        }
+        
         return 1
     }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        let totalPosts = fetchedResultsController.sections![section].numberOfObjects
-        if (totalPosts == 0 && self.isFirstTimeLoad) {
-            return 1
-        } else {
-            return totalPosts
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let sections = fetchedResultsController.sections {
+            let currentSection = sections[indexPath.section]
+            let totalPost = currentSection.numberOfObjects
+            if (totalPost > 0) {
+                if (hasMoreData && indexPath.row == totalPost) {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCellReuseIdentifier", for: indexPath) as! LoadingTableViewCell
+                    cell.loadingIndicatorView.startAnimating()
+                    return cell
+                } else {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "BlogTableViewCell", for: indexPath) as! BlogTableViewCell
+                    
+                    configureCell(cell, atIndexPath: indexPath)
+                    return cell
+                }
+            }
         }
-    }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        let totalPosts = fetchedResultsController.sections![indexPath.section].numberOfObjects
-        if (totalPosts == 0 && self.isFirstTimeLoad) {
-            let cell = tableView.dequeueReusableCellWithIdentifier("LoadingCellReuseIdentifier", forIndexPath: indexPath)
+        if (isRequesting) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCellReuseIdentifier", for: indexPath) as! LoadingTableViewCell
+            cell.loadingIndicatorView.startAnimating()
             return cell
-            
         } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("BlogTableViewCell", forIndexPath: indexPath) as! BlogTableViewCell
-            
-            configureCell(cell, atIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCellReuseIdentifier", for: indexPath)
             return cell
         }
     }
@@ -245,27 +258,46 @@ extension BlogListViewController : UITableViewDataSource {
 
 extension BlogListViewController : UITableViewDelegate {
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        performSegueWithIdentifier("showDetailPage", sender: nil)
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-    }
-    
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let totalPosts = fetchedResultsController.sections![indexPath.section].numberOfObjects
-        if (totalPosts == 0 && self.isFirstTimeLoad) {
-            return tableView.frame.height
-        } else {
-            return 285.0
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let sections = fetchedResultsController.sections {
+            let currentSection = sections[indexPath.section]
+            let totalPost = currentSection.numberOfObjects
+            if (totalPost > 0) {
+                if (hasMoreData && indexPath.row == totalPost) {
+                    
+                } else {
+                    performSegue(withIdentifier: "showDetailPage", sender: nil)
+                }
+                
+            }
         }
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.0
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if let sections = fetchedResultsController.sections {
+            let currentSection = sections[indexPath.section]
+            let totalPost = currentSection.numberOfObjects
+            if (totalPost > 0) {
+                if (hasMoreData && indexPath.row == totalPost) {
+                    return 80
+                } else {
+                    return 285
+                }
+                
+            }
+        }
+        
+        return tableView.frame.size.height
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.0
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 0.1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
     }
 }
 
@@ -274,33 +306,33 @@ extension BlogListViewController : UITableViewDelegate {
 
 extension BlogListViewController : NSFetchedResultsControllerDelegate {
     
-    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         
     }
     
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.blogListTableView.reloadData()
     }
     
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         
     }
 }
 
 extension BlogListViewController : UIScrollViewDelegate {
-    func scrollViewWillBeginDragging(scrollView: UIScrollView) {
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         triggerLoadingMoreIfNeeded()
     }
     
-    func scrollViewDidEndDragging(scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         triggerLoadingMoreIfNeeded()
     }
     
-    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         triggerLoadingMoreIfNeeded()
     }
     
-    func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
+    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
         triggerLoadingMoreIfNeeded()
     }
 }

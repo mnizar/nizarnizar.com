@@ -32,19 +32,19 @@ class SideMenuViewController: BaseViewController {
         super.viewDidLoad()
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let blogList = storyboard.instantiateViewControllerWithIdentifier("BlogListViewController") as! BlogListViewController
+        let blogList = storyboard.instantiateViewController(withIdentifier: "BlogListViewController") as! BlogListViewController
         self.blogListViewController = UINavigationController(rootViewController: blogList)
         
-        let aboutVC = storyboard.instantiateViewControllerWithIdentifier("AboutViewController") as! AboutViewController
+        let aboutVC = storyboard.instantiateViewController(withIdentifier: "AboutViewController") as! AboutViewController
         self.aboutViewController = UINavigationController(rootViewController: aboutVC)
         
-        let openSourceVC = storyboard.instantiateViewControllerWithIdentifier("OpenSourceViewController") as! OpenSourceViewController
+        let openSourceVC = storyboard.instantiateViewController(withIdentifier: "OpenSourceViewController") as! OpenSourceViewController
         self.openSourceViewController = UINavigationController(rootViewController: openSourceVC)
         
     }
     
     // MARK: Private Methods
-    func changeViewController(menu: LeftMenu) {
+    func changeViewController(_ menu: LeftMenu) {
         switch menu {
         case .home:
             self.slideMenuController()?.changeMainViewController(self.blogListViewController, close: true)
@@ -60,23 +60,23 @@ class SideMenuViewController: BaseViewController {
 // MARK: - UITableViewDataSource
 extension SideMenuViewController : UITableViewDataSource {
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return 2
     }
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("SideMenuTableViewCell", forIndexPath: indexPath) as! SideMenuTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SideMenuTableViewCell", for: indexPath) as! SideMenuTableViewCell
         cell.delegate = self
         switch indexPath.row {
         case 0:
-            cell.titleMenuButton.setTitle("Home", forState: .Normal)
+            cell.titleMenuButton.setTitle("Home", for: UIControlState())
             break
         case 1:
-            cell.titleMenuButton.setTitle("About", forState: .Normal)
+            cell.titleMenuButton.setTitle("About", for: UIControlState())
             break
         case 2:
-            cell.titleMenuButton.setTitle("Open Source Libraries", forState: .Normal)
+            cell.titleMenuButton.setTitle("Open Source Libraries", for: UIControlState())
             break
         default:
             break
@@ -90,28 +90,28 @@ extension SideMenuViewController : UITableViewDataSource {
 
 extension SideMenuViewController : UITableViewDelegate {
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
     
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80.0
     }
     
-    func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
     }
     
-    func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.0
     }
 }
 
 // MARK: - SideMenuTableViewCellDelegate
 extension SideMenuViewController : SideMenuTableViewCellDelegate {
-    func menuButtonDidClicked(cell : UITableViewCell) {
-        let indexPath = tableView.indexPathForCell(cell)
+    func menuButtonDidClicked(_ cell : UITableViewCell) {
+        let indexPath = tableView.indexPath(for: cell)
         if let menu = LeftMenu(rawValue: (indexPath?.row)!) {
             self.changeViewController(menu)
         }
