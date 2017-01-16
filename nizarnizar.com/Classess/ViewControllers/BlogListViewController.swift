@@ -201,7 +201,7 @@ class BlogListViewController: BaseViewController {
 //                    print(responsePostArray)
                     let parser = BlogPostParser()
                     if let parsedArray = parser.parsedArrayFromArray(responsePostArray) {
-                        BlogPost.InsertBlogPostWithArray(parsedArray, inCategory: 0)
+                        BlogPost.insertBlogPostWithArray(parsedArray, inCategory: 0)
                     }
                     
 //                    print(parsedArray)

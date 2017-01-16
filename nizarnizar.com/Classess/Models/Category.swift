@@ -15,12 +15,12 @@ class Category: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
 
-    class func InsertCategoryWithArray(_ parsedArray: [[String : AnyObject]]) {
+    class func insertCategoryWithArray(_ parsedArray: [[String : AnyObject]]) {
         
         let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
         
         for dictionary in parsedArray {
-            InsertBlogPostWithDictionary(dictionary)
+            insertBlogPostWithDictionary(dictionary)
         }
         
         do {
@@ -30,7 +30,7 @@ class Category: NSManagedObject {
         }
     }
     
-    class func InsertBlogPostWithDictionary(_ dictionary: [String : AnyObject]) {
+    class func insertBlogPostWithDictionary(_ dictionary: [String : AnyObject]) {
         let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
         let categoryIDString = dictionary["id"]!.stringValue
         // success ...

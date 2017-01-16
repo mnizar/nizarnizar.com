@@ -25,7 +25,7 @@ class CategoryManager {
                 
                 if let JSON = response.result.value as? [String:AnyObject]{
                     if let responsePostArray = JSON["categories"] as? [[String:AnyObject]] {
-                        Category.InsertCategoryWithArray(responsePostArray)
+                        Category.insertCategoryWithArray(responsePostArray)
                         // Define identifier
                         let notificationName = Notification.Name("RefreshCategoriesNotification")
                         NotificationCenter.default.post(name: notificationName, object: nil)

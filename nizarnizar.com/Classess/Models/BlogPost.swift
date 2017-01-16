@@ -14,12 +14,12 @@ class BlogPost: NSManagedObject {
 
 // Insert code here to add functionality to your managed object subclass
     
-     class func InsertBlogPostWithArray(_ parsedArray: [[String : AnyObject]], inCategory: Int) {
+     class func insertBlogPostWithArray(_ parsedArray: [[String : AnyObject]], inCategory: Int) {
         
         let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
         
         for dictionary in parsedArray {
-            InsertBlogPostWithDictionary(dictionary, inCategory: inCategory)
+            insertBlogPostWithDictionary(dictionary, inCategory: inCategory)
         }
         
         do {
@@ -29,7 +29,7 @@ class BlogPost: NSManagedObject {
         }
     }
     
-    class func InsertBlogPostWithDictionary(_ dictionary: [String : AnyObject], inCategory: Int) {
+    class func insertBlogPostWithDictionary(_ dictionary: [String : AnyObject], inCategory: Int) {
         let managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).managedObjectContext
         let postIDString = dictionary["postID"]!.stringValue
         // success ...
