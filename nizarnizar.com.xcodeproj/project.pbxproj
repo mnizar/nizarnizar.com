@@ -37,6 +37,7 @@
 		2B5041AD1CDB63B10066BEB0 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5041AC1CDB63B10066BEB0 /* BaseViewController.swift */; };
 		2B5041AF1CDB64220066BEB0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5041AE1CDB64220066BEB0 /* Constants.swift */; };
 		2B5041BB1CEE2F960066BEB0 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5041BA1CEE2F950066BEB0 /* DateFormatter.swift */; };
+		2BECE1B31E2D206900683B9D /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BECE1B21E2D206900683B9D /* LoadingTableViewCell.swift */; };
 		68D5432DAF38A5BD591B4671 /* Pods_nizarnizar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CF004628B440A982C157F04 /* Pods_nizarnizar.framework */; };
 		84A29CE9C8C28EFD0EFAF981 /* Pods_nizarnizar_comTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 534C1031E7553F7351311CD4 /* Pods_nizarnizar_comTests.framework */; };
 		FC4F31D3AECACCD3BA6D6F1D /* Pods_nizarnizar_comUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA8FBC4943D864F2EC2507A9 /* Pods_nizarnizar_comUITests.framework */; };
@@ -99,6 +100,7 @@
 		2B5041AC1CDB63B10066BEB0 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseViewController.swift; path = Classess/ViewControllers/BaseViewController.swift; sourceTree = "<group>"; };
 		2B5041AE1CDB64220066BEB0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Classess/Constants.swift; sourceTree = "<group>"; };
 		2B5041BA1CEE2F950066BEB0 /* DateFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateFormatter.swift; path = Classess/Utils/DateFormatter.swift; sourceTree = "<group>"; };
+		2BECE1B21E2D206900683B9D /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoadingTableViewCell.swift; path = Classess/Views/LoadingTableViewCell.swift; sourceTree = "<group>"; };
 		2CF004628B440A982C157F04 /* Pods_nizarnizar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nizarnizar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		534C1031E7553F7351311CD4 /* Pods_nizarnizar_comTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_nizarnizar_comTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		76A5D2F6AFF4D5B6270F7B6C /* Pods-nizarnizar.comTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-nizarnizar.comTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-nizarnizar.comTests/Pods-nizarnizar.comTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -311,6 +313,7 @@
 			children = (
 				2B5041A21CD146850066BEB0 /* BlogTableViewCell.swift */,
 				2B283A0A1D4CA7E000716DAA /* SideMenuTableViewCell.swift */,
+				2BECE1B21E2D206900683B9D /* LoadingTableViewCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -646,6 +649,7 @@
 				2B283A011D4C90AA00716DAA /* ContainerViewController.swift in Sources */,
 				2B5041AF1CDB64220066BEB0 /* Constants.swift in Sources */,
 				2B5041A11CC2968B0066BEB0 /* AppDelegate.swift in Sources */,
+				2BECE1B31E2D206900683B9D /* LoadingTableViewCell.swift in Sources */,
 				2B283A1F1D4CE63D00716DAA /* CategoryManager.swift in Sources */,
 				2B5041A91CDB62470066BEB0 /* NNParser.swift in Sources */,
 				2B5041681CC275C70066BEB0 /* nizarnizar_com.xcdatamodeld in Sources */,

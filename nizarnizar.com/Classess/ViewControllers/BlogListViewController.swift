@@ -15,7 +15,6 @@ import SlideMenuControllerSwift
 class BlogListViewController: BaseViewController {
     
     @IBOutlet weak var blogListTableView: UITableView!
-    var isFirstTimeLoad : Bool = false
     var isRequesting : Bool = false
     var hasMoreData : Bool = false
     var page : Int = 1
@@ -70,7 +69,6 @@ class BlogListViewController: BaseViewController {
         blogListTableView.addSubview(refreshControl)
 
         // Do any additional setup after loading the view.
-        self.isFirstTimeLoad = true;
         do {
             try self.fetchedResultsController.performFetch()
         } catch {
@@ -180,7 +178,6 @@ class BlogListViewController: BaseViewController {
                     self.refreshControl.endRefreshing()
                 }
                 self.isRequesting = false
-                self.isFirstTimeLoad = false
                 print(response.request?.url?.absoluteString ?? "")  // original URL request
 //                print(response.response) // URL response
 //                print(response.data)     // server data
@@ -206,36 +203,52 @@ class BlogListViewController: BaseViewController {
                     
 //                    print(parsedArray)
                 }
+                
+                self.blogListTableView.reloadData()
         }
     }
 }
 
 // MARK: - UITableViewDataSource
 extension BlogListViewController : UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        let totalPosts = fetchedResultsController.sections![section].numberOfObjects
-        if (totalPosts == 0 && self.isFirstTimeLoad) {
-            return 1
-        } else {
-            return totalPosts
+        if let sections = fetchedResultsController.sections {
+            let currentSection = sections[section]
+            var totalPost = currentSection.numberOfObjects
+            if (totalPost > 0) {
+                if (hasMoreData) {
+                    totalPost = totalPost + 1
+                }
+                return totalPost
+            }
         }
+        
+        return 1
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let totalPosts = fetchedResultsController.sections![indexPath.section].numberOfObjects
-        if (totalPosts == 0 && self.isFirstTimeLoad) {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCellReuseIdentifier", for: indexPath)
+        if let sections = fetchedResultsController.sections {
+            let currentSection = sections[indexPath.section]
+            let totalPost = currentSection.numberOfObjects
+            if (totalPost > 0) {
+                if (hasMoreData && indexPath.row == totalPost) {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCellReuseIdentifier", for: indexPath) as! LoadingTableViewCell
+                    cell.loadingIndicatorView.startAnimating()
+                    return cell
+                } else {
+                    let cell = tableView.dequeueReusableCell(withIdentifier: "BlogTableViewCell", for: indexPath) as! BlogTableViewCell
+                    
+                    configureCell(cell, atIndexPath: indexPath)
+                    return cell
+                }
+            }
+        }
+        if (isRequesting) {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCellReuseIdentifier", for: indexPath) as! LoadingTableViewCell
+            cell.loadingIndicatorView.startAnimating()
             return cell
-            
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "BlogTableViewCell", for: indexPath) as! BlogTableViewCell
-            
-            configureCell(cell, atIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: "EmptyCellReuseIdentifier", for: indexPath)
             return cell
         }
     }
@@ -246,26 +259,45 @@ extension BlogListViewController : UITableViewDataSource {
 extension BlogListViewController : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "showDetailPage", sender: nil)
+        if let sections = fetchedResultsController.sections {
+            let currentSection = sections[indexPath.section]
+            let totalPost = currentSection.numberOfObjects
+            if (totalPost > 0) {
+                if (hasMoreData && indexPath.row == totalPost) {
+                    
+                } else {
+                    performSegue(withIdentifier: "showDetailPage", sender: nil)
+                }
+                
+            }
+        }
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let totalPosts = fetchedResultsController.sections![indexPath.section].numberOfObjects
-        if (totalPosts == 0 && self.isFirstTimeLoad) {
-            return tableView.frame.height
-        } else {
-            return 285.0
+        if let sections = fetchedResultsController.sections {
+            let currentSection = sections[indexPath.section]
+            let totalPost = currentSection.numberOfObjects
+            if (totalPost > 0) {
+                if (hasMoreData && indexPath.row == totalPost) {
+                    return 80
+                } else {
+                    return 285
+                }
+                
+            }
         }
+        
+        return tableView.frame.size.height
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0.0
+        return 0.1
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 0.0
+        return 0.1
     }
 }
 
